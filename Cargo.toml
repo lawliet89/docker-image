@@ -3,6 +3,11 @@ name = "docker-image"
 version = "0.1.0"
 authors = ["Yong Wen Chua <me@yongwen.xyz>"]
 
+[[bin]]
+name = "docker-image"
+path = "src/main.rs"
+test = true
+
 [dependencies]
 clap = "2.24.2"
 serde = "1.0"
