@@ -1,4 +1,4 @@
-# docker-image
+# docker-image ![Build Status](https://travis-ci.org/lawliet89/docker-image.svg?branch=master)
 
 A simple CLI tool and library to parse Docker image names into its components.
 
