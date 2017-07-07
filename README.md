@@ -1,12 +1,23 @@
 # docker-image
 
-A simple CLI tool to parse Docker image names into its components.
+A simple CLI tool and library to parse Docker image names into its components.
 
-## Building and running it
+## Library
+
+Documentation
+
+```toml
+[dependencies]
+docker_image = { git = "https://github.com/lawliet89/docker-image", branch = "master" }
+```
+
+## CLI
+
+### Building and running
 
 You can build and run the CLI tool using `cargo run`.
 
-## Usage
+### Usage
 
 ```bash
 docker-image 0.1.0

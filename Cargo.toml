@@ -1,12 +1,19 @@
 [package]
-name = "docker-image"
-version = "0.1.0"
+name = "docker_image"
+version = "0.2.0"
 authors = ["Yong Wen Chua <me@yongwen.xyz>"]
 
 [[bin]]
-name = "docker-image"
+name = "docker_image"
 path = "src/main.rs"
 test = true
+
+[lib]
+name = "docker_image"
+path = "src/lib.rs"
+test = true
+doctest = true
+doc = true
 
 [dependencies]
 clap = "2.24.2"
