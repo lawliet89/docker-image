@@ -23,37 +23,38 @@ fn main() {
 }
 
 fn make_parser<'a, 'b>() -> App<'a, 'b>
-    where 'a: 'b
+where
+    'a: 'b,
 {
     App::new("docker-image")
         .version(crate_version!())
         .author(crate_authors!())
         .about("Parse Docker Image names into their components")
-        .arg(Arg::with_name("always_array")
-                 .long("always-array")
-                 .help("Always output the results in an array, \
-                  even if there is only one image name specified"))
-        .arg(Arg::with_name("image_names")
-                 .help("Image names to parse")
-                 .value_name("IMAGE")
-                 .required(true)
-                 .multiple(true))
+        .arg(Arg::with_name("always_array").long("always-array").help(
+            "Always output the results in an array, \
+                  even if there is only one image name specified",
+        ))
+        .arg(
+            Arg::with_name("image_names")
+                .help("Image names to parse")
+                .value_name("IMAGE")
+                .required(true)
+                .multiple(true),
+        )
 }
 
-fn print<'a, W: Write>(images: &[ImageName<'a>],
-                       always_array: bool,
-                       mut writer: W)
-                       -> Result<(), String> {
+fn print<'a, W: Write>(
+    images: &[ImageName<'a>],
+    always_array: bool,
+    mut writer: W,
+) -> Result<(), String> {
     let json = if !always_array && images.len() == 1 {
-            serde_json::to_string_pretty(&images[0])
-        } else {
-            serde_json::to_string_pretty(images)
-        }
-        .map_err(|e| e.to_string())?;
+        serde_json::to_string_pretty(&images[0])
+    } else {
+        serde_json::to_string_pretty(images)
+    }.map_err(|e| e.to_string())?;
 
-    writer
-        .write_all(json.as_bytes())
-        .map_err(|e| e.to_string())?;
+    writer.write_all(json.as_bytes()).map_err(|e| e.to_string())?;
     Ok(())
 }
 
