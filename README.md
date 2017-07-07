@@ -4,7 +4,7 @@ A simple CLI tool and library to parse Docker image names into its components.
 
 ## Library
 
-Documentation
+[Documentation](https://lawliet89.github.io/docker-image/)
 
 ```toml
 [dependencies]
