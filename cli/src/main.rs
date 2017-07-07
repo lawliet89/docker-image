@@ -1,5 +1,4 @@
 extern crate docker_image;
-extern crate serde;
 extern crate serde_json;
 
 #[macro_use]

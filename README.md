@@ -15,11 +15,11 @@ docker_image = { git = "https://github.com/lawliet89/docker-image", branch = "ma
 
 ### Building and running
 
-You can build and run the CLI tool using `cargo run`.
+You can build and run the CLI tool using `cargo run --package docker_image_cli`.
 
 ### Usage
 
-```bash
+```txt
 docker-image 0.1.0
 Yong Wen Chua <me@yongwen.xyz>
 Parse Docker Image names into their components
