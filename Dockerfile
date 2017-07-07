@@ -23,15 +23,16 @@ RUN set -x \
 
 WORKDIR /app/src
 COPY Cargo.toml Cargo.lock ./
+COPY cli/Cargo.toml ./cli/Cargo.toml
 RUN cargo fetch --locked -v
 
 COPY ./ ./
-RUN cargo build --release --target "${ARCHITECTURE}" -v --frozen
+RUN cargo build --release --target "${ARCHITECTURE}" -v --frozen --package docker_image_cli
 
 # Runtime Image
 
 FROM alpine:3.5
 ARG ARCHITECTURE=x86_64-unknown-linux-musl
 WORKDIR /app
-COPY --from=builder /app/src/target/${ARCHITECTURE}/release/docker-image .
-CMD [/app/docker-image]
+COPY --from=builder /app/src/target/${ARCHITECTURE}/release/docker_image_cli .
+CMD [/app/docker_image_cli]

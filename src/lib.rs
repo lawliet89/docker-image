@@ -42,12 +42,12 @@ pub struct ImageName<'a> {
     /// Name components may contain lowercase characters, digits, and separators.
     /// A separator is defined as a period, one or two underscores, or one or more dashes.
     /// A name component may not start or end with a separator.
-    repository: &'a str,
+    pub repository: &'a str,
     /// A tag serves to map a descriptive, user-given name to any single image ID.
     /// Tag values are limited to the set of characters `[a-zA-Z0-9_.-]`,
     /// except they may not start with a . or - character.
     /// Tags are limited to 128 characters.
-    tag: Option<&'a str>,
+    pub tag: Option<&'a str>,
 }
 
 impl<'a> ImageName<'a> {
@@ -68,6 +68,11 @@ impl<'a> ImageName<'a> {
 
         ImageName { repository, tag }
     }
+}
+
+/// Parse an image string into its constituent components
+pub fn parse<'a>(image: &'a str) -> ImageName<'a> {
+    ImageName::parse(image)
 }
 
 #[cfg(test)]
