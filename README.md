@@ -1,14 +1,25 @@
-# docker-image
+# docker-image ![Build Status](https://travis-ci.org/lawliet89/docker-image.svg?branch=master)
 
-A simple CLI tool to parse Docker image names into its components.
+A simple CLI tool and library to parse Docker image names into its components.
 
-## Building and running it
+## Library
 
-You can build and run the CLI tool using `cargo run`.
+[Documentation](https://lawliet89.github.io/docker-image/)
 
-## Usage
+```toml
+[dependencies]
+docker_image = { git = "https://github.com/lawliet89/docker-image", branch = "master" }
+```
 
-```bash
+## CLI
+
+### Building and running
+
+You can build and run the CLI tool using `cargo run --package docker_image_cli`.
+
+### Usage
+
+```txt
 docker-image 0.1.0
 Yong Wen Chua <me@yongwen.xyz>
 Parse Docker Image names into their components
