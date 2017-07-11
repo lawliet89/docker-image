@@ -56,7 +56,7 @@ impl<'a> ImageName<'a> {
         // Separate the image name by the `:` seperator
         let colon_seperated: Vec<&'a str> = image.rsplit(':').collect();
         let tag = if colon_seperated.len() > 1 {
-            Some(colon_seperated[0].clone())
+            Some(colon_seperated[0])
         } else {
             None
         };
